@@ -14,15 +14,18 @@ namespace SharpChess.Pieces {
             moves.Add((x, y + 1 * (int) Color));
             if (y == pawnRow) moves.Add((x, y + 2 * (int) Color));
 
-            moves.AddRange(new[] {
-                    (x - 1, y + 1 * (int) Color),
-                    (x + 1, y + 1 * (int) Color)
-                }.Where(square => {
-                        var (x1, y1) = (Square) square;
-                        return board[x1, y1]?.Color == game.PassivePlayer;
-}
-                )
-                .Select(square => (Square) square));
+            moves.AddRange(
+                new[] {
+                        (x - 1, y + 1 * (int) Color),
+                        (x + 1, y + 1 * (int) Color)
+                    }.Where(
+                        square => {
+                            var (x1, y1) = (Square) square;
+                            return board[x1, y1]?.Color == game.PassivePlayer;
+                        }
+                    )
+                    .Select(square => (Square) square)
+            );
 
             return moves;
         }
@@ -31,9 +34,7 @@ namespace SharpChess.Pieces {
             throw new NotImplementedException();
         }
 
-        public void Promote() {
-            
-        }
+        public void Promote() { }
 
         public Color Color { get; set; }
         public Square StartingLocation { get; set; }

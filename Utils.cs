@@ -3,7 +3,9 @@ using static SharpChess.MoveType;
 
 namespace SharpChess {
     public static class Utils {
-        public static bool IsInRange(this int n, int lower, int upper) => n >= lower && n <= upper;
+        public static bool IsInRange(this int n, int lower, int upper) {
+            return n >= lower && n <= upper;
+        }
 
 
         public static Move Parse(this Game game, string s) {
@@ -31,7 +33,8 @@ namespace SharpChess {
             return letter;
         }
 
-        public static bool IsInBounds(this Square square) =>
-            square.x.IsInRange(0, 7) && square.y.IsInRange(0, 7);
+        public static bool IsInBounds(this Square square) {
+            return square.x.IsInRange(0, 7) && square.y.IsInRange(0, 7);
+        }
     }
 }

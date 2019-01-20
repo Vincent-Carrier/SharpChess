@@ -2,9 +2,9 @@ using System.Collections.Generic;
 
 namespace SharpChess {
     public interface IPiece {
-        List<Square> LegalDestinations(Game game, Square location);
         Color Color { get; set; }
         Square StartingLocation { get; set; }
+        List<Square> LegalDestinations(Game game, Square location);
     }
 
     public enum Color {

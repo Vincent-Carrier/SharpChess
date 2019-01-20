@@ -649,7 +649,7 @@
           "build/NUnit.props": {}
         }
       },
-      "NUnit3TestAdapter/3.11.0": {
+      "NUnit3TestAdapter/3.12.0": {
         "type": "package",
         "dependencies": {
           "Microsoft.DotNet.InternalAbstractions": "1.0.0",
@@ -2567,7 +2567,6 @@
       "sha512": "U82mHQSKaIk+lpSVCbWYKNavmNH1i5xrExDEquU1i6I5pV6UMOqRnJRSlKO3cMPfcpp0RgDY+8jUXHdQ4IfXvw==",
       "type": "package",
       "path": "newtonsoft.json/9.0.1",
-      "hasTools": true,
       "files": [
         ".nupkg.metadata",
         "lib/net20/Newtonsoft.Json.dll",
@@ -2623,10 +2622,10 @@
         "nunit.nuspec"
       ]
     },
-    "NUnit3TestAdapter/3.11.0": {
-      "sha512": "Rrf6YJw1EAZKMwC1vNRHNBeWY+ziPOM6uh50HUaag8AjsVmc36XmdcmfdPsipPzWFsJhE9Js3FTJ93CMkoBpoA==",
+    "NUnit3TestAdapter/3.12.0": {
+      "sha512": "H1zF3uzN+nheWW3wfx1xyottGjLJxi8E3ll8XV9ga7lEClLCoILvnsWgIZRD8WGFVuEnodA47OpCqu7y/yCDsQ==",
       "type": "package",
-      "path": "nunit3testadapter/3.11.0",
+      "path": "nunit3testadapter/3.12.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2640,7 +2639,7 @@
         "build/netcoreapp1.0/NUnit3.TestAdapter.pdb",
         "build/netcoreapp1.0/NUnit3TestAdapter.props",
         "build/netcoreapp1.0/nunit.engine.netstandard.dll",
-        "nunit3testadapter.3.11.0.nupkg.sha512",
+        "nunit3testadapter.3.12.0.nupkg.sha512",
         "nunit3testadapter.nuspec"
       ]
     },
@@ -5760,7 +5759,7 @@
     ".NETCoreApp,Version=v2.2": [
       "Microsoft.NET.Test.Sdk >= 15.9.0",
       "Microsoft.NETCore.App >= 2.2.0",
-      "NUnit3TestAdapter >= 3.11.0",
+      "NUnit3TestAdapter >= 3.12.0",
       "SharpChess >= 1.0.0",
       "nunit >= 3.11.0"
     ]
@@ -5820,7 +5819,7 @@
           },
           "NUnit3TestAdapter": {
             "target": "Package",
-            "version": "[3.11.0, )"
+            "version": "[3.12.0, )"
           },
           "nunit": {
             "target": "Package",

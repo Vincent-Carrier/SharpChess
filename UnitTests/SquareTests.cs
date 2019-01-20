@@ -5,13 +5,12 @@ using SharpChess;
 namespace UnitTests {
     [TestFixture]
     public class SquareTests {
-        private Board _board = new Board();
+        Board _board = new Board();
 
         [Test]
         public void StringToSquare() {
             var e4 = new List<Square> {"e4"};
             e4.Print();
         }
-        
     }
 }

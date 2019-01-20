@@ -2,12 +2,12 @@
 using static System.Console;
 
 namespace SharpChess {
-    internal class Program {
-        private const string HELP_MESSAGE =
+    class Program {
+        const string HELP_MESSAGE =
             @"Please enter your moves like so:
-           g1-f3, where g1 is the location of the piece you wish
-           to move and f3 is where you want to move it. Use O-O
-           and O-O-O for King and Queen-side castling, respectively";
+g1-f3, where g1 is the location of the piece you wish
+to move and f3 is where you want to move it. Use O-O
+and O-O-O for King and Queen-side castling, respectively";
 
         public static void Main() {
             var game = new Game();
@@ -42,7 +42,11 @@ namespace SharpChess {
                             break;
                     }
 
-                    if (game.Play(move)) continue;
+                    if (game.Play(move)) {
+                        WriteLine(game);
+                        continue;
+                    }
+
                     WriteLine("Invalid move, please try again");
                 }
             }

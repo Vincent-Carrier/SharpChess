@@ -5,14 +5,17 @@ namespace SharpChess.Pieces {
         public List<Square> LegalDestinations(Game game, Square location) {
             var moves = new List<Square>();
             var (x, y) = location;
-            
-            for (int i = 0; i < 3; i++) {
-                for (int j = 0; j < 3; j++) {
-                    moves.Add((x+i, y+j));
-                }
+
+            for (var i = -1; i <= 1; i++)
+            for (var j = -1; j <= 1; j++) {
+                Square candidate = (x + i, y + j);
+                if (candidate.IsInBounds() &&
+                    game.Board[candidate]?.Color != game.ActivePlayer)
+                    moves.Add(candidate);
             }
-            
-//            moves.Where()
+
+            // TODO: Avoid checks
+
             return moves;
         }
 

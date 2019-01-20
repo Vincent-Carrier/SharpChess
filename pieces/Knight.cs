@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SharpChess.Pieces {
     public struct Knight : IPiece {
@@ -6,7 +7,7 @@ namespace SharpChess.Pieces {
             var (x, y) = location;
 
             // Going clockwise starting down-right
-            var moves = new List<Square> {
+            Square[] destinations = {
                 (x + 1, y + 2),
                 (x - 1, y + 2),
                 (x - 2, y + 1),
@@ -17,12 +18,12 @@ namespace SharpChess.Pieces {
                 (x + 2, y + 1)
             };
 
-            foreach (var move in moves) {
-                if (!move.IsInBounds() || game.Board[move]?.Color == game.ActivePlayer)
-                    moves.Remove(move);
-            }
-
-            return moves;
+            return destinations.Where(
+                    move => move.IsInBounds() &&
+                            game.Board[move]
+                                ?.Color != game.ActivePlayer
+                )
+                .ToList();
         }
 
         public Color Color { get; set; }

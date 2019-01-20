@@ -12,7 +12,7 @@ namespace UnitTests {
                 sb.Append($"{8 - j} ");
                 for (var i = 0; i < 8; i++) {
                     sb.Append(' ');
-                    sb.Append(squares.Contains((i, j)) ? 'X' : 'O');
+                    sb.Append(squares.Contains(new Square(i, j)) ? 'X' : 'O');
                 }
 
                 sb.AppendLine();

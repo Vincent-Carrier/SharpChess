@@ -22,7 +22,7 @@ namespace SharpChess {
                     board[To] = Captured;
                     board[From] = moved;
                     break;
-                
+
                 // TODO
                 case QueenSideCastle: break;
                 case KingSideCastle: break;
@@ -30,7 +30,6 @@ namespace SharpChess {
                 case Promotion: break;
                 default: throw new ArgumentOutOfRangeException();
             }
-            
         }
 
 

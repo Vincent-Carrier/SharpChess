@@ -31,7 +31,9 @@ namespace SharpChess {
         }
 
         public bool IsLegalMove(Move move) {
-            if (!LegalDestinations(move.From).Contains(move.To)) return false;
+            if (Board[move.From]?.Color != ActivePlayer ||
+                !LegalDestinations(move.From).Contains(move.To)) return false;
+
             switch (move.Type) {
                 case Normal:
                 case EnPassant:
@@ -47,11 +49,11 @@ namespace SharpChess {
             }
 
             bool ExposesKing() {
-                foreach (var piece in Board) {
+                foreach (var piece in Board)
                     if (piece.Color == PassivePlayer &&
                         (piece is Bishop || piece is Rook || piece is Queen) &&
-                        LegalDestinations(Board[piece]).Contains(King(ActivePlayer))) return true;
-                }
+                        LegalDestinations(Board[piece]).Contains(King(ActivePlayer)))
+                        return true;
 
                 return false;
 
@@ -64,7 +66,7 @@ namespace SharpChess {
             }
         }
 
-        private void Execute(Move move) {
+        void Execute(Move move) {
             switch (move.Type) {
                 case Normal:
                     move.Captured = Board[move.To];
@@ -96,7 +98,7 @@ namespace SharpChess {
 
         public override string ToString() {
             var sb = new StringBuilder();
-            sb.Append(" A B C D E F G H\n");
+            sb.Append("   A B C D E F G H\n");
             for (var j = 0; j < 8; j++) {
                 sb.Append($"{8 - j} ");
                 for (var i = 0; i < 8; i++) {
@@ -112,7 +114,8 @@ namespace SharpChess {
         }
 
         public bool IsCheckmate() {
-            throw new System.NotImplementedException();
+            // TODO
+            return false;
         }
 
         #region History

@@ -5,10 +5,6 @@ using static SharpChess.Color;
 
 namespace SharpChess {
     public class Board : IEnumerable<IPiece> {
-        readonly Dictionary<IPiece, Square> _pieces = new Dictionary<IPiece, Square>(16);
-        readonly IPiece[,] _board = new IPiece[8, 8];
-
-
         static readonly IPiece[] WHITE_PIECES = {
             new Rook(), new Knight(), new Bishop(), new Queen(),
             new King(), new Bishop(), new Knight(), new Rook()
@@ -18,6 +14,9 @@ namespace SharpChess {
             new Rook(), new Knight(), new Bishop(), new Queen(),
             new King(), new Bishop(), new Knight(), new Rook()
         };
+
+        readonly IPiece[,] _board = new IPiece[8, 8];
+        readonly Dictionary<IPiece, Square> _pieces = new Dictionary<IPiece, Square>(32);
 
         static Board() {
             for (var i = 0; i < 8; i++) {
@@ -48,6 +47,7 @@ namespace SharpChess {
         }
 
         public Square this[IPiece piece] => _pieces[piece];
+
         public IPiece this[Square square] {
             get => this[square.x, square.y];
             set => this[square.x, square.y] = value;
@@ -63,7 +63,12 @@ namespace SharpChess {
             }
         }
 
-        public IEnumerator<IPiece> GetEnumerator() => _pieces.Keys.GetEnumerator();
-        IEnumerator IEnumerable.GetEnumerator() => ((IEnumerable) _pieces).GetEnumerator();
+        public IEnumerator<IPiece> GetEnumerator() {
+            return _pieces.Keys.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator() {
+            return ((IEnumerable) _pieces).GetEnumerator();
+        }
     }
 }

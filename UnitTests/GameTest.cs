@@ -4,7 +4,6 @@ using SharpChess;
 namespace UnitTests {
     [TestFixture]
     public class GameTest {
-
         public Game Game = new Game();
 
         [Test]
